@@ -7,8 +7,8 @@
     "dev": "concurrently \"npm run serve\" \"npm run start:dev\"",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "start": "electron index.js -- --title 'Scuttlebutt First Aid Kit'",
-    "start:dev": "NODE_ENV=development electron index.js -- --title 'Scuttlebutt First Aid Kit'"
+    "start": "electron index.js",
+    "start:dev": "NODE_ENV=development electron index.js"
   },
   "repository": {
     "type": "git",
