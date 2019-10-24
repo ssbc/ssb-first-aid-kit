@@ -11,11 +11,14 @@ function createWindow () {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    webPreferences: {
+      nodeIntegration: true,
+    }
   })
 
   const appURL = process.env.NODE_ENV === 'development'
-        ? 'http://localhost:8080' // dev-server
-        : `file://${__dirname}/dist/index.html` // production build
+    ? 'http://localhost:8080' // dev-server
+    : `file://${__dirname}/dist/index.html` // production build
 
   mainWindow.loadURL(appURL)
 

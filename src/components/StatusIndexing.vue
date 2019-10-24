@@ -1,21 +1,17 @@
 <template>
   <div>
-    hello
-    {{ test }}
+    status
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App',
+  components: {
+  },
   data () {
     return {
-      test: 'butt'
     }
   },
-  created () {
-    document.title = 'Scuttlebutt First Aid Kit'
-  }
 }
 </script>
 
