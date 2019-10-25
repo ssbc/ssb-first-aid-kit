@@ -12,7 +12,7 @@ import StatusIndexing from "../components/StatusIndexing"
 export default {
   name: 'App',
   components: {
-    StatusIndexing
+    StatusIndexing,
   },
   data () {
     return {
@@ -21,7 +21,12 @@ export default {
   },
   created () {
     document.title = 'Scuttlebutt First Aid Kit'
-  }
+
+    this.$store.dispatch('poll')
+    window.setInterval(() => {
+      this.$store.dispatch('poll')
+    }, 1000)
+  },
 }
 </script>
 

@@ -13,22 +13,14 @@ export default {
   },
   data () {
     return {
-      rawStatus: {}
     }
   },
   computed: {
     formattedStatus () {
-      return JSON.stringify(this.rawStatus, null, 2)
-    }
+      console.log('dastore', this.$store.state.status)
+      return JSON.stringify(this.$store.state.status, null, 2)
+    },
   },
-  created () {
-    this.$sbot.status((err, res) => {
-      if (err) throw err
-
-      console.log('status', res)
-      this.rawStatus = res
-    })
-  }
 }
 </script>
 
