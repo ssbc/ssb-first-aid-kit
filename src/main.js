@@ -7,7 +7,7 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store(Store)
 
-const vue = new Vue({
+new Vue({
   store,
   render: h => h(App),
 }).$mount('#app')

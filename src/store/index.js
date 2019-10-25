@@ -38,8 +38,7 @@ export default {
         state.sbot.status((err, res) => {
           if (err) throw err
 
-          console.log('status', res)
-          commit('setStatus', res.progress.indexes.current)
+          commit('setStatus', res)
         })
       }
     },

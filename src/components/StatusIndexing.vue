@@ -1,7 +1,7 @@
 <template>
   <div>
     status
-    <div class="code">
+    <div class="code" asdfDdsa>
       {{ formattedStatus }}
     </div>
   </div>
@@ -17,7 +17,6 @@ export default {
   },
   computed: {
     formattedStatus () {
-      console.log('dastore', this.$store.state.status)
       return JSON.stringify(this.$store.state.status, null, 2)
     },
   },
@@ -30,5 +29,6 @@ export default {
   text-align: left;
   overflow: auto;
   white-space: pre;
+  max-height: 40rem;
 }
 </style>
