@@ -28,6 +28,8 @@ export default {
 <style scoped>
 .wrapper {
   text-align: center;
+  margin: auto;
+  max-width: 40rem;
 }
 
 .status-item {

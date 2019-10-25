@@ -12,14 +12,6 @@ ssbClient((err, sbot) => {
 
   Vue.prototype.$sbot = sbot
 
-  sbot.whoami((err, keys) => {
-    if (err) console.log('could not get keys, got err', err)
-    else console.log('whoami details:', keys)
-
-    console.log('disconnecting from server')
-    sbot.close()
-  })
-
   vue = new Vue({
     render: h => h(App)
   }).$mount('#app')
