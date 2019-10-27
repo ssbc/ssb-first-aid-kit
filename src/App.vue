@@ -1,22 +1,15 @@
 <template>
   <div class="wrapper">
-    hello
-    {{ test }}
-    <StatusIndexing class="status-item"></StatusIndexing>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import StatusIndexing from "../components/StatusIndexing"
-
 export default {
-  name: 'App',
   components: {
-    StatusIndexing,
   },
   data () {
     return {
-      test: 'butt',
     }
   },
   created () {
