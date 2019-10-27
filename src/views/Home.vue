@@ -1,13 +1,18 @@
 <template>
   <div>
     home page
-    <router-link to="/indexing">Indexing</router-link>
+    <div>
+      <WidgetIndexing></WidgetIndexing>
+    </div>
   </div>
 </template>
 
 <script>
+import WidgetIndexing from '../ui/WidgetIndexing'
+
 export default {
   components: {
+    WidgetIndexing
   },
   data () {
     return {

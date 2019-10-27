@@ -1,7 +1,10 @@
 <template>
   <div>
-    status
-    <div class="code" asdfDdsa>
+    <router-link to="/">back</router-link>
+    <div>
+      status
+    </div>
+    <div class="code">
       {{ formattedStatus }}
     </div>
   </div>
