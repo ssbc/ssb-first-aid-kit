@@ -1,18 +1,21 @@
 <template>
   <div>
     home page
-    <div>
+    <div class="widgets">
+      <WidgetConnection></WidgetConnection>
       <WidgetIndexing></WidgetIndexing>
     </div>
   </div>
 </template>
 
 <script>
+import WidgetConnection from "../ui/WidgetConnection"
 import WidgetIndexing from '../ui/WidgetIndexing'
 
 export default {
   components: {
-    WidgetIndexing
+    WidgetConnection,
+    WidgetIndexing,
   },
   data () {
     return {
@@ -22,4 +25,11 @@ export default {
 </script>
 
 <style scoped>
+.widgets {
+  margin: 1.5rem;
+}
+
+.widgets > * {
+  margin-bottom: 1rem;
+}
 </style>

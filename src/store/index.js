@@ -25,7 +25,7 @@ export default {
       if (state.sbot === null) {
         ssbClient((err, sbot) => {
           if (err) {
-            console.error('Could not connect to ssb-server')
+            // console.error('Could not connect to ssb-server')
             return
           }
 

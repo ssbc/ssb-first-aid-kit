@@ -1,7 +1,7 @@
 <template>
-  <BaseWidget link="/indexing" icon="✔">
-    Indexing:
-    {{ this.$store.state.status.progress.indexes.current }}/{{ this.$store.state.status.progress.indexes.target }}
+  <BaseWidget link="" icon="✔">
+    Connection:
+    {{ connected ? 'Connected' : 'Not connected' }}
   </BaseWidget>
 </template>
 
@@ -17,6 +17,9 @@ export default {
     }
   },
   computed: {
+      connected () {
+          return this.$store.state.sbot !== null
+      },
   },
 }
 </script>
