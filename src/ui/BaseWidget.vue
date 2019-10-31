@@ -1,7 +1,7 @@
 <template>
   <div>
     <router-link :to="link">
-      <q-card class="layout">
+      <q-card class="layout" :class="status">
         <div class="status-icon">
           <Icon :name="iconName"></Icon>
         </div>
@@ -50,7 +50,18 @@ export default {
   grid-template-columns: 3rem auto;
   min-height: 3rem;
   align-items: center;
+}
+
+.layout.good {
+  background-color: #90ee90;
+}
+
+.layout.neutral {
   background-color: #eeeeee;
+}
+
+.layout.unsure {
+  background-color: #ffffa0;
 }
 
 .status-icon {
