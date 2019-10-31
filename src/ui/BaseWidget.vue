@@ -1,14 +1,14 @@
 <template>
   <div>
     <router-link :to="link">
-      <div class="layout">
+      <q-card class="layout">
         <div class="status-icon">
           {{ icon }}
         </div>
         <div>
           <slot></slot>
         </div>
-      </div>
+      </q-card>
     </router-link>
   </div>
 </template>
@@ -35,9 +35,8 @@ export default {
   display: grid;
   grid-template-columns: 3rem auto;
   height: 3rem;
-  border: solid;
-  border-radius: 3px;
   align-items: center;
+  background-color: #eeeeee;
 }
 
 .status-icon {

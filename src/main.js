@@ -3,6 +3,8 @@ import Vuex from 'vuex'
 import App from './App'
 import Store from './store/'
 import router from "./router"
+import "quasar/dist/quasar.umd.min.js"
+import "quasar/dist/quasar.min.css"
 
 Vue.use(Vuex)
 
