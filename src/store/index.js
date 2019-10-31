@@ -22,6 +22,12 @@ export default {
       dispatch('updateStatus')
     },
     connectSbot ({ state, commit }) {
+      if (state.sbot && state.sbot.closed === true) {
+        // when we've been connected to the server before but the connection
+        // dropped for some reason (probably that the client was closed)
+        state.sbot = null
+      }
+
       if (state.sbot === null) {
         ssbClient((err, sbot) => {
           if (err) {

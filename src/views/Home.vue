@@ -3,7 +3,7 @@
     home page
     <div class="widgets">
       <WidgetConnection></WidgetConnection>
-      <WidgetIndexing></WidgetIndexing>
+      <WidgetIndexing v-if="connected"></WidgetIndexing>
     </div>
   </div>
 </template>
@@ -20,6 +20,12 @@ export default {
   data () {
     return {
     }
+  },
+  computed: {
+    connected () {
+      // we can move this logic to a mixin if we start using it all over the place
+      return this.$store.state.sbot !== null
+    },
   },
 }
 </script>
