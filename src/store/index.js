@@ -5,6 +5,11 @@ export default {
     sbot: null,
     status: null,
   },
+  getters: {
+    connected (state) {
+      return state.sbot !== null
+    },
+  },
   mutations: {
     setSbot (state, val) {
       state.sbot = val
@@ -21,14 +26,14 @@ export default {
       dispatch('connectSbot')
       dispatch('updateStatus')
     },
-    connectSbot ({ state, commit }) {
+    connectSbot ({ state, commit, getters }) {
       if (state.sbot && state.sbot.closed === true) {
         // when we've been connected to the server before but the connection
         // dropped for some reason (probably that the client was closed)
-        state.sbot = null
+        commit('setSbot', null)
       }
 
-      if (state.sbot === null) {
+      if (!getters.connected) {
         ssbClient((err, sbot) => {
           if (err) {
             // console.error('Could not connect to ssb-server')

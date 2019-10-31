@@ -23,8 +23,7 @@ export default {
   },
   computed: {
     connected () {
-      // we can move this logic to a mixin if we start using it all over the place
-      return this.$store.state.sbot !== null
+      return this.$store.getters.connected
     },
   },
 }
