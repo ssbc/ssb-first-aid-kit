@@ -3,7 +3,7 @@
     home page
     <div class="widgets">
       <WidgetConnection></WidgetConnection>
-      <WidgetIndexing v-if="connected"></WidgetIndexing>
+      <WidgetIndexing></WidgetIndexing>
     </div>
   </div>
 </template>
@@ -20,11 +20,6 @@ export default {
   data () {
     return {
     }
-  },
-  computed: {
-    connected () {
-      return this.$store.getters.connected
-    },
   },
 }
 </script>

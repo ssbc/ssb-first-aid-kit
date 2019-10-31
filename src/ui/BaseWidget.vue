@@ -3,7 +3,7 @@
     <router-link :to="link">
       <q-card class="layout">
         <div class="status-icon">
-          {{ icon }}
+          <Icon :name="iconName"></Icon>
         </div>
         <div>
           <slot></slot>
@@ -14,18 +14,32 @@
 </template>
 
 <script>
+import Icon from './Icon'
+
 export default {
   components: {
+    Icon,
   },
   props: [
     'link',
-    'icon',
+    'status',
   ],
   data () {
     return {
     }
   },
   computed: {
+    iconName () {
+      if (this.status === 'good') {
+        return 'done' // checkmark
+      } else if (this.status === 'neutral') {
+        return 'remove' // minus
+      } else if (this.status === 'unsure') {
+        return 'help_outline' // question mark
+      } else {
+        return 'unknown status'
+      }
+    },
   },
 }
 </script>
@@ -34,7 +48,7 @@ export default {
 .layout {
   display: grid;
   grid-template-columns: 3rem auto;
-  height: 3rem;
+  min-height: 3rem;
   align-items: center;
   background-color: #eeeeee;
 }

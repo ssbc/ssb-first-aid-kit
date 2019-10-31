@@ -1,5 +1,5 @@
 <template>
-  <BaseWidget link="" icon="✔">
+  <BaseWidget link="" :status="connected ? 'good' : 'unsure'">
     Connection:
     {{ connected ? 'Connected' : 'Not connected' }}
   </BaseWidget>

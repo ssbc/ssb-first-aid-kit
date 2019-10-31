@@ -36,7 +36,8 @@ export default {
       if (!getters.connected) {
         ssbClient((err, sbot) => {
           if (err) {
-            // console.error('Could not connect to ssb-server')
+            // TODO: make a status screen to display the `err`
+            //console.error('Could not connect to ssb-server', err)
             return
           }
 
@@ -44,8 +45,8 @@ export default {
         })
       }
     },
-    updateStatus ({ state, commit }) {
-      if (state.sbot !== null) {
+    updateStatus ({ state, commit, getters }) {
+      if (getters.connected) {
         state.sbot.status((err, res) => {
           if (err) throw err
 
