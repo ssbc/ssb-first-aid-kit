@@ -1,7 +1,7 @@
 <template>
   <BaseWidget link="" :status="connected ? 'good' : 'unsure'">
     Connection:
-    {{ connected ? 'Connected' : 'Not connected' }}
+    {{ connected ? 'Connected' : "Not connected. Can't find a scuttlebutt client on this machine to connect to. Please start one if you haven't." }}
   </BaseWidget>
 </template>
 

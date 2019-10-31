@@ -2,10 +2,10 @@
   <div>
     <router-link :to="link">
       <q-card class="layout" :class="status">
-        <div class="status-icon">
+        <div>
           <Icon :name="iconName"></Icon>
         </div>
-        <div>
+        <div class="slot">
           <slot></slot>
         </div>
       </q-card>
@@ -52,6 +52,15 @@ export default {
   align-items: center;
 }
 
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.slot {
+  padding: 0.5rem;
+}
+
 .layout.good {
   background-color: #90ee90;
 }
@@ -62,8 +71,5 @@ export default {
 
 .layout.unsure {
   background-color: #ffffa0;
-}
-
-.status-icon {
 }
 </style>
