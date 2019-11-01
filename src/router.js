@@ -7,8 +7,7 @@ import StatusIndexing from '@/views/StatusIndexing'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
-  base: '/',
+  mode: 'hash',
   routes: [
     { path: '/', component: Home },
     { path: '/indexing', component: StatusIndexing },
