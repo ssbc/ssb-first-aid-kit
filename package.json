@@ -9,6 +9,7 @@
     "build:vue": "vue-cli-service build",
     "build:electron": "electron-builder",
     "build": "npm run build:vue && npm run build:electron",
+    "postinstall": "electron-builder install-app-deps",
     "start": "electron index.js",
     "start:dev": "NODE_ENV=development electron index.js"
   },
@@ -40,5 +41,27 @@
   "devDependencies": {
     "electron": "^7.0.0",
     "electron-builder": "^22.1.0"
-  }
+  },
+  "build": {
+    "appId": "org.ssbc.ssb-first-aid-kit",
+    "directories": {
+      "output": "dist/installers"
+    }
+  },
+  "files": [
+    "**/*",
+    "!src/*",
+    "!dist/installers",
+    "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
+    "!**/node_modules/*/{test,__tests__,tests,powered-test,example,examples}",
+    "!**/node_modules/*.d.ts",
+    "!**/node_modules/.bin",
+    "!**/*.{iml,o,hprof,orig,pyc,pyo,rbc,swp,csproj,sln,xproj}",
+    "!.editorconfig",
+    "!**/._*",
+    "!**/{.DS_Store,.git,.hg,.svn,CVS,RCS,SCCS,.gitignore,.gitattributes}",
+    "!**/{__pycache__,thumbs.db,.flowconfig,.idea,.vs,.nyc_output}",
+    "!**/{appveyor.yml,.travis.yml,circle.yml}",
+    "!**/{npm-debug.log,yarn.lock,.yarn-integrity,.yarn-metadata.json}"
+  ]
 }
