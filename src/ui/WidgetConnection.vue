@@ -18,7 +18,7 @@ export default {
   },
   computed: {
       connected () {
-          return this.$store.state.sbot !== null
+          return this.$store.getters.connected
       },
   },
 }
