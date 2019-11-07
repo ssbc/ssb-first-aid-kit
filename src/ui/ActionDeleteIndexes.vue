@@ -1,5 +1,6 @@
 <template>
-  <q-btn @click="deleteIndexes" :disabled="connected" color="primary" no-caps>
+  <q-btn @click="deleteIndexes" :disabled="connected || deleting" color="primary" no-caps>
+    <q-spinner v-if="deleting"></q-spinner>
     <div>
       <div>
         Delete indexes
@@ -21,6 +22,7 @@ export default {
   },
   data () {
     return {
+      deleting: false,
     }
   },
   computed: {
@@ -30,6 +32,8 @@ export default {
   },
   methods: {
     deleteIndexes () {
+      this.deleting = true
+
       const ssbConfig = Config('ssb')
       // getting this to make sure it works cross-platform
       const ssbPath = ssbConfig.path
@@ -39,6 +43,7 @@ export default {
         if (err) throw err
 
         console.log('files found:', files)
+        this.deleting = false
       })
     },
   },
