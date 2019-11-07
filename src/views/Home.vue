@@ -34,7 +34,7 @@ export default {
       const ssbPath = ssbConfig.path
 
       // just print the files to start with
-      glob(`${ssbPath}/flume/**/*`, (err, files) => {
+      glob(`${ssbPath}/flume/**/*`, { ignore: '**/log.offset' }, (err, files) => {
         if (err) throw err
 
         console.log('files found:', files)
