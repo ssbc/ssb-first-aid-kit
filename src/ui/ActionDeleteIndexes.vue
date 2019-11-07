@@ -13,9 +13,9 @@
 </template>
 
 <script>
-import glob from 'glob'
 import Config from 'ssb-config/inject'
 import { mapGetters } from 'vuex'
+import del from 'del'
 
 export default {
   components: {
@@ -31,20 +31,21 @@ export default {
     ]),
   },
   methods: {
-    deleteIndexes () {
+    async deleteIndexes () {
       this.deleting = true
 
       const ssbConfig = Config('ssb')
       // getting this to make sure it works cross-platform
       const ssbPath = ssbConfig.path
 
-      // just print the files to start with
-      glob(`${ssbPath}/flume/**/*`, { ignore: '**/log.offset' }, (err, files) => {
-        if (err) throw err
+      const deletedPaths = await del([
+        `${ssbPath}/flume/**/*`,
+        `!${ssbPath}/flume/`,
+        `!${ssbPath}/flume/log.offset`], { force: true });
+      
+      console.log('Files deleted:', deletedPaths)
 
-        console.log('files found:', files)
-        this.deleting = false
-      })
+      this.deleting = false
     },
   },
 }
