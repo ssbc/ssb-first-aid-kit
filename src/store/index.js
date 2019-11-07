@@ -19,12 +19,22 @@ export default {
     },
   },
   actions: {
-    poll ({ dispatch }) {
+    poll ({ commit, dispatch }) {
       // this function runs at an interval
       // for stuff that isn't reactive/observable
 
       dispatch('connectSbot')
-      dispatch('updateStatus')
+      try {
+        dispatch('updateStatus')
+      } catch (err) {
+        // sometimes (not sure when, happened once with patchwork) the
+        // connection drops but `closed` is still false. simplest way to detect
+        // it is probably to catch the eventual errors from the calls to sbot
+        console.error('Connection dropped for unknown reason')
+        commit('setSbot', null)
+
+        throw err
+      }
     },
     connectSbot ({ state, commit, getters }) {
       if (state.sbot && state.sbot.closed === true) {
