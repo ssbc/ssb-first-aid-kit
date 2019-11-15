@@ -21,7 +21,19 @@ When running the app, if you're not sure what to do to fix your problem, you can
 * `npm install`
 * `npm run dev` launches the app with hot/automatic reloading when you save files. At first it shows a blank screen though, and you need to refresh the page (ctrl+R). You only need to do this once though, after that it should reload automatically.
 
-To make a release, do `npm version $TYPE` where `$TYPE` is either `major`, `minor`, or `patch`. Then `git push` that to master (it creates a commit for you) and after the automatic builds are done there should be a new draft release on the releases page on GitHub.
+## Making a release
+
+To make a release commit and tag, do
+```
+npm version $TYPE
+```
+where `$TYPE` is either `major`, `minor`, or `patch`. Then push it with
+```
+git push --tags origin master
+```
+(the `--tags` is needed otherwise git doesn't push the tag, and `origin master` is needed otherwise it only pushes the tag, not also the commit)
+
+After the automatic builds are done there should be a new draft release on the releases page on GitHub.
 
 
 ## License
