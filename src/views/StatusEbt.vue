@@ -2,7 +2,7 @@
   <div>
     <router-link to="/">Back</router-link>
     <div>
-      Index status
+      Ebt status
     </div>
     <CodeBlock>
       {{ formattedStatus }}
@@ -19,7 +19,7 @@ export default {
   },
   computed: {
     formattedStatus () {
-      return JSON.stringify(this.$store.state.status, null, 2)
+      return JSON.stringify(this.$store.state.ebt, null, 2)
     },
   },
 }

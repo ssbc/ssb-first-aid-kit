@@ -5,6 +5,7 @@
     <div class="widgets">
       <WidgetConnection></WidgetConnection>
       <WidgetIndexing></WidgetIndexing>
+      <WidgetEbt></WidgetEbt>
     </div>
     <div>Action</div>
     <div>
@@ -14,19 +15,17 @@
 </template>
 
 <script>
-import WidgetConnection from "../ui/WidgetConnection"
-import WidgetIndexing from '../ui/WidgetIndexing'
-import ActionDeleteIndexes from '../ui/ActionDeleteIndexes'
+import WidgetConnection from '@/ui/WidgetConnection'
+import WidgetIndexing from '@/ui/WidgetIndexing'
+import WidgetEbt from '@/ui/WidgetEbt'
+import ActionDeleteIndexes from '@/ui/ActionDeleteIndexes'
 
 export default {
   components: {
     WidgetConnection,
     WidgetIndexing,
+    WidgetEbt,
     ActionDeleteIndexes,
-  },
-  data () {
-    return {
-    }
   },
 }
 </script>

@@ -4,10 +4,14 @@ export default {
   state: {
     sbot: null,
     status: null,
+    ebt: null,
   },
   getters: {
     connected (state) {
       return state.sbot !== null
+    },
+    ebt (state) {
+      return state.ebt
     },
   },
   mutations: {
@@ -17,15 +21,21 @@ export default {
     setStatus (state, val) {
       state.status = val
     },
+    setEbt (state, val) {
+      state.ebt = val
+    },
   },
   actions: {
-    poll ({ commit, dispatch }) {
+    poll ({ getters, commit, dispatch }) {
       // this function runs at an interval
       // for stuff that isn't reactive/observable
 
       dispatch('connectSbot')
       try {
-        dispatch('updateStatus')
+        if (getters.connected) {
+          dispatch('updateStatus')
+          dispatch('updateEbt')
+        }
       } catch (err) {
         // sometimes (not sure when, happened once with patchwork) the
         // connection drops but `closed` is still false. simplest way to detect
@@ -55,13 +65,23 @@ export default {
         })
       }
     },
-    updateStatus ({ state, commit, getters }) {
-      if (getters.connected) {
-        state.sbot.status((err, res) => {
-          if (err) throw err
+    updateStatus ({ state, commit }) {
+      state.sbot.status((err, res) => {
+        if (err) throw err
 
-          commit('setStatus', res)
+        commit('setStatus', res)
+      })
+    },
+    updateEbt ({ state, commit}) {
+      if (state.sbot.ebt) {
+        state.sbot.ebt.peerStatus(state.sbot.id, (err, data) => {
+          if (err) return console.error(err)
+
+          commit('setEbt', data)
         })
+      } else {
+        // the client doesn't have ebt installed
+        commit('setEbt', null)
       }
     },
   },

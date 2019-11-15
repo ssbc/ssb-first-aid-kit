@@ -6,6 +6,7 @@ A user-friendly app for diagnosing and fixing problems with your Scuttlebutt ins
 
 * See if this app can connect to a running client.
 * See the status of your database (flumedb) indexes.
+* See the status of other clients replicating you (using ebt)
 * A button for deleting your database indexes if they seem stuck or broken.
 
 ## Installing and using the app
