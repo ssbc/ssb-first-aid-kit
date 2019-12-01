@@ -1,22 +1,33 @@
 <template>
   <div>
     <router-link to="/">Back</router-link>
-    <div>
+    <div class="title">
       Index status
     </div>
-    <CodeBlock>
-      {{ formattedStatus }}
-    </CodeBlock>
+    <div class="subtitle">
+      Average index progress
+    </div>
+    <Progress :current="average" :target="target"></Progress>
+    <div class="subtitle">
+      Individual index progress
+    </div>
+    <Progress
+      v-for="(current, name) in indexes"
+      :key="name"
+      :label="name"
+      :current="current"
+      :target="target"
+    ></Progress>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import CodeBlock from "@/ui/CodeBlock"
+import Progress from '@/ui/Progress'
 
 export default {
   components: {
-    CodeBlock,
+    Progress,
   },
   computed: {
     ...mapState('indexing', [
@@ -39,4 +50,15 @@ export default {
 </script>
 
 <style scoped>
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.subtitle {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
 </style>
