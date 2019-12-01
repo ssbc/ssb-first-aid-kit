@@ -11,13 +11,15 @@
     <div class="subtitle">
       Individual index progress
     </div>
-    <Progress
-      v-for="(current, name) in indexes"
-      :key="name"
-      :label="name"
-      :current="current"
-      :target="target"
-    ></Progress>
+    <div class="indexes">
+      <Progress
+        v-for="(current, name) in indexes"
+        :key="name"
+        :label="name"
+        :current="current"
+        :target="target"
+      ></Progress>
+    </div>
   </div>
 </template>
 
@@ -60,5 +62,10 @@ export default {
   font-weight: 600;
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
+}
+
+.indexes {
+  display: grid;
+  grid-row-gap: 0.5rem;
 }
 </style>
