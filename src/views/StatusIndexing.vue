@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import CodeBlock from "@/ui/CodeBlock"
 
 export default {
@@ -18,8 +19,20 @@ export default {
     CodeBlock,
   },
   computed: {
+    ...mapState('indexing', [
+      'average',
+      'target',
+      'indexes',
+    ]),
+    statusString () {
+      return {
+        'average': this.average,
+        'target': this.target,
+        'indexes': this.indexes,
+      }
+    },
     formattedStatus () {
-      return JSON.stringify(this.$store.state.status, null, 2)
+      return JSON.stringify(this.statusString, null, 2)
     },
   },
 }

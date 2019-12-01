@@ -1,9 +1,9 @@
 import ssbClient from 'ssb-client'
+import indexing from './modules/indexing'
 
 export default {
   state: {
     sbot: null,
-    status: null,
     ebt: null,
   },
   getters: {
@@ -18,9 +18,6 @@ export default {
     setSbot (state, val) {
       state.sbot = val
     },
-    setStatus (state, val) {
-      state.status = val
-    },
     setEbt (state, val) {
       state.ebt = val
     },
@@ -33,7 +30,7 @@ export default {
       dispatch('connectSbot')
       try {
         if (getters.connected) {
-          dispatch('updateStatus')
+          dispatch('indexing/update')
           dispatch('updateEbt')
         }
       } catch (err) {
@@ -65,17 +62,10 @@ export default {
         })
       }
     },
-    updateStatus ({ state, commit }) {
-      state.sbot.status((err, res) => {
-        if (err) throw err
-
-        commit('setStatus', res)
-      })
-    },
     updateEbt ({ state, commit}) {
       if (state.sbot.ebt) {
         state.sbot.ebt.peerStatus(state.sbot.id, (err, data) => {
-          if (err) return console.error(err)
+          if (err) return console.error('ebt update failed', err)
 
           commit('setEbt', data)
         })
@@ -84,5 +74,8 @@ export default {
         commit('setEbt', null)
       }
     },
+  },
+  modules: {
+    indexing,
   },
 }

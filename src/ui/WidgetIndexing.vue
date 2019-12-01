@@ -1,11 +1,11 @@
 <template>
-  <BaseWidget v-if="connected && status" link="/indexing" :status="finished ? 'good' : 'neutral'">
+  <BaseWidget v-if="connected && hasData" link="/indexing" :status="finished ? 'good' : 'neutral'">
     <div class="indexes">
       <div>
         Indexing:
       </div>
       <div class="numbers">
-        {{ current }} /
+        {{ average }} /
         <br/>
         {{ target }}
       </div>
@@ -15,6 +15,7 @@
 
 <script>
 import BaseWidget from './BaseWidget'
+import { mapState, mapGetters } from 'vuex'
 
 export default {
   components: {
@@ -28,20 +29,15 @@ export default {
     connected () {
       return this.$store.getters.connected
     },
-    status () {
-      return this.$store.state.status
-    },
-    indexes () {
-      return this.status.progress.indexes
-    },
-    current () {
-      return this.indexes.current
-    },
-    target () {
-      return this.indexes.target
-    },
+    ...mapState('indexing', [
+      'average',
+      'target',
+    ]),
+    ...mapGetters('indexing', [
+      'hasData',
+    ]),
     finished () {
-      return this.current === this.target
+      return this.average === this.target
     },
   },
 }
