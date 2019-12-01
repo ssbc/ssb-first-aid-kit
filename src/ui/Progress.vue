@@ -15,6 +15,10 @@
           <span>
             <span v-if="label">{{ label }}:</span>
             {{ current }}
+            <template v-if="showTarget">
+              /
+              {{ target }}
+            </template>
           </span>
           <div class="symbol">
             <q-spinner
@@ -44,6 +48,7 @@ export default {
     label: String,
     current: Number,
     target: Number,
+    showTarget: Boolean,
   },
   computed: {
     ratioDone () {
