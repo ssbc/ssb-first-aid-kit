@@ -3,6 +3,7 @@
     <q-linear-progress
       :value="ratioDone"
       size="2rem"
+      :color="color"
       rounded
     >
       <!-- absolute-full is a quasar thing and is needed for some reason -->
@@ -10,15 +11,35 @@
         <q-badge
           color="white"
           text-color="black"
-          :label="`${label ? label : ''} ${current} / ${target}`"
-        ></q-badge>
+        >
+          <span>
+            <span v-if="label">{{ label }}:</span>
+            {{ current }}
+          </span>
+          <div class="symbol">
+            <q-spinner
+              v-if="inProgress"
+              :color="color"
+            ></q-spinner>
+            <Icon
+              v-else
+              name="done"
+              :color="color"
+            ></Icon>
+          </div>
+        </q-badge>
       </div>
     </q-linear-progress>
   </div>
 </template>
 
 <script>
+import Icon from './Icon'
+
 export default {
+  components: {
+    Icon,
+  },
   props: {
     label: String,
     current: Number,
@@ -28,6 +49,14 @@ export default {
     ratioDone () {
       return this.current / this.target
     },
+    inProgress () {
+      return this.current !== this.target
+    },
+    color () {
+      return this.inProgress
+        ? 'orange'
+        : 'green'
+    },
   },
 }
 </script>
@@ -36,5 +65,9 @@ export default {
 .whole-label {
   display: grid;
   place-items: center;
+}
+
+.symbol {
+  margin-left: 0.5rem;
 }
 </style>

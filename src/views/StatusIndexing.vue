@@ -4,6 +4,12 @@
     <div class="title">
       Index status
     </div>
+    <q-badge
+      text-color="white"
+      class="target"
+    >
+      Target: {{ target }}
+    </q-badge>
     <div class="subtitle">
       Average index progress
     </div>
@@ -62,6 +68,11 @@ export default {
   font-weight: 600;
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
+}
+
+.target {
+  margin-top: 1rem;
+  height: 2rem;
 }
 
 .indexes {
