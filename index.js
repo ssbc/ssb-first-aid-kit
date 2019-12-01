@@ -13,7 +13,8 @@ function createWindow () {
     height: 600,
     webPreferences: {
       nodeIntegration: true,
-    }
+    },
+    autoHideMenuBar: true
   })
 
   const appURL = process.env.NODE_ENV === 'development'
