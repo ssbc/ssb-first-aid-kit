@@ -45,9 +45,15 @@ export default {
     Icon,
   },
   props: {
+    current: {
+      type: Number,
+      required: true,
+    },
+    target: {
+      type:Number,
+      required: true,
+    },
     label: String,
-    current: Number,
-    target: Number,
     showTarget: Boolean,
   },
   computed: {
