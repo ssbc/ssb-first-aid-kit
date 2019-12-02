@@ -4,16 +4,24 @@
     <div>
       Ebt status
     </div>
+    <div class="explanation">
+      <p>
+        EBT (Epidemic Broadcast Trees) is one method of scuttlebutt feed replication (sending messages between people). To make it work, clients tell each other how many messages they have from each other. What's visualized on this page is how many messages other clients say that they have from <i>you</i>.
+      </p>
+      <p>
+      It's normal for peers to take a while to get your messages. But if someone is stuck on an old message of yours for several days, maybe they're having trouble replicating you? Or, if several people seem stuck on old messages for several days, maybe your feed is "forked"?
+      </p>
+    </div>
     <q-card class="my-seq">
       Your latest message id: {{ mySeq }}
     </q-card>
-    <div>
+    <div class="peer-list">
       <div
         v-for="peer in peers"
         :key="peer.id"
       >
         <div>
-          {{ peer.id }}
+          Peer: {{ peer.id }}
         </div>
         <Progress
           :current="peer.seq"
@@ -21,29 +29,21 @@
         ></Progress>
       </div>
     </div>
-    <CodeBlock>
-      {{ formattedStatus }}
-    </CodeBlock>
   </div>
 </template>
 
 <script>
-import CodeBlock from '@/ui/CodeBlock'
 import Progress from '@/ui/Progress'
 import { mapState } from 'vuex'
 
 export default {
   components: {
-    CodeBlock,
     Progress,
   },
   computed: {
     ...mapState([
       'ebt',
     ]),
-    formattedStatus () {
-      return JSON.stringify(this.ebt, null, 2)
-    },
     mySeq () { // -UEL  // note: this is a bad pun, don't let it confuse you
       return this.ebt.seq
     },
@@ -66,5 +66,14 @@ export default {
   color: white;
   margin: 2rem;
   padding: 1rem;
+}
+
+.explanation {
+  margin: 1rem 5rem;
+}
+
+.peer-list {
+  display: grid;
+  grid-row-gap: 1.5rem;
 }
 </style>
