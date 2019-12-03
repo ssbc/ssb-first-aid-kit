@@ -1,6 +1,9 @@
 <template>
-  <div>
-    home page
+  <BaseView>
+    <template #title>
+      home page
+    </template>
+
     <div>Status</div>
     <div class="widgets">
       <WidgetConnection></WidgetConnection>
@@ -11,10 +14,11 @@
     <div>
       <ActionDeleteIndexes></ActionDeleteIndexes>
     </div>
-  </div>
+  </BaseView>
 </template>
 
 <script>
+import BaseView from '@/ui/BaseView'
 import WidgetConnection from '@/ui/WidgetConnection'
 import WidgetIndexing from '@/ui/WidgetIndexing'
 import WidgetEbt from '@/ui/WidgetEbt'
@@ -22,6 +26,7 @@ import ActionDeleteIndexes from '@/ui/ActionDeleteIndexes'
 
 export default {
   components: {
+    BaseView,
     WidgetConnection,
     WidgetIndexing,
     WidgetEbt,

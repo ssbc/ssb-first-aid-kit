@@ -1,9 +1,9 @@
 <template>
-  <div>
-    <router-link to="/">Back</router-link>
-    <div class="title">
+  <BaseView>
+    <template #title>
       Index status
-    </div>
+    </template>
+
     <q-badge
       text-color="white"
       class="target"
@@ -26,15 +26,17 @@
         :target="target"
       ></Progress>
     </div>
-  </div>
+  </BaseView>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import BaseView from '@/ui/BaseView'
 import Progress from '@/ui/Progress'
+import { mapState } from 'vuex'
 
 export default {
   components: {
+    BaseView,
     Progress,
   },
   computed: {
@@ -43,16 +45,6 @@ export default {
       'target',
       'indexes',
     ]),
-    statusString () {
-      return {
-        'average': this.average,
-        'target': this.target,
-        'indexes': this.indexes,
-      }
-    },
-    formattedStatus () {
-      return JSON.stringify(this.statusString, null, 2)
-    },
   },
 }
 </script>

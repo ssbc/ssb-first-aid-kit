@@ -29,8 +29,4 @@ export default {
   margin: auto;
   max-width: 40rem;
 }
-
-.status-item {
-  margin: 2rem;
-}
 </style>

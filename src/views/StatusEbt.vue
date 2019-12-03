@@ -1,9 +1,9 @@
 <template>
-  <div>
-    <router-link to="/">Back</router-link>
-    <div>
+  <BaseView>
+    <template #title>
       Ebt status
-    </div>
+    </template>
+
     <div class="explanation">
       <p>
         EBT (Epidemic Broadcast Trees) is one method of scuttlebutt feed replication (sending messages between people). To make it work, clients tell each other how many messages they have from each other. What's visualized on this page is how many messages other clients say that they have from <i>you</i>.
@@ -32,15 +32,17 @@
     <div v-else>
       Not connected to any peers with ebt support
     </div>
-  </div>
+  </BaseView>
 </template>
 
 <script>
+import BaseView from '@/ui/BaseView'
 import Progress from '@/ui/Progress'
 import { mapState } from 'vuex'
 
 export default {
   components: {
+    BaseView,
     Progress,
   },
   computed: {
