@@ -15,7 +15,7 @@
     <q-card class="my-seq">
       Your latest message id: {{ mySeq }}
     </q-card>
-    <div class="peer-list">
+    <div v-if="peers.length > 0" class="peer-list">
       <div
         v-for="peer in peers"
         :key="peer.id"
@@ -28,6 +28,9 @@
           :target="mySeq"
         ></Progress>
       </div>
+    </div>
+    <div>
+      Not connected to any peers with ebt support
     </div>
   </div>
 </template>

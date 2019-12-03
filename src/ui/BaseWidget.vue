@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-link :to="link">
+    <router-link :to="link" :class="{ 'no-link': link === '' }">
       <q-card class="layout" :class="status">
         <div>
           <Icon :name="iconName"></Icon>
@@ -50,6 +50,10 @@ export default {
   grid-template-columns: 3rem auto;
   min-height: 3rem;
   align-items: center;
+}
+
+.no-link {
+  cursor: default;
 }
 
 a {
