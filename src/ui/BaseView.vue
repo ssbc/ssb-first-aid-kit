@@ -8,9 +8,9 @@
         <slot name="title"></slot>
       </div>
     </div>
-    <div v-if="!connected && !atHome">
-      NOT CONNECTED CHANGEME
-    </div>
+    <q-card v-if="!connected && !atHome" class="not-connected">
+      Lost connection to the client. The information you see below is the last we received, and is probably out of date.
+    </q-card>
     <div>
       <slot></slot>
     </div>
@@ -44,5 +44,12 @@ export default {
 .title {
   font-size: 1.5rem;
   font-weight: 600;
+}
+
+.not-connected {
+  background-color: var(--q-color-negative);
+  color: white;
+  margin: 1.5rem;
+  padding: 1rem;
 }
 </style>
