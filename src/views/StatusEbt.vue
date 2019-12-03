@@ -29,7 +29,7 @@
         ></Progress>
       </div>
     </div>
-    <div>
+    <div v-else>
       Not connected to any peers with ebt support
     </div>
   </div>
