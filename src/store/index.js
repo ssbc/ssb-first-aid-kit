@@ -53,7 +53,8 @@ export default {
       if (!getters.connected) {
         ssbClient((err, sbot) => {
           if (err) {
-            // TODO: make a status screen to display the `err`
+            // Maybe make a status screen to display the `err`? Hasn't been
+            // super useful so far when I've tried uncommenting it.
             //console.error('Could not connect to ssb-server', err)
             return
           }

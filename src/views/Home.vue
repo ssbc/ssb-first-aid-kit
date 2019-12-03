@@ -4,13 +4,13 @@
       Scuttlebutt First Aid Kit
     </template>
 
-    <div>Status</div>
+    <div class="subtitle">Status</div>
     <div class="widgets">
       <WidgetConnection></WidgetConnection>
       <WidgetIndexing></WidgetIndexing>
       <WidgetEbt></WidgetEbt>
     </div>
-    <div>Action</div>
+    <div class="subtitle">Action</div>
     <div>
       <ActionDeleteIndexes></ActionDeleteIndexes>
     </div>
@@ -36,8 +36,9 @@ export default {
 </script>
 
 <style scoped>
-.widgets {
-  margin: 1.5rem;
+.subtitle {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .widgets > * {
