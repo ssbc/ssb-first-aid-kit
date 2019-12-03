@@ -1,7 +1,7 @@
 <template>
   <BaseView>
     <template #title>
-      home page
+      Scuttlebutt First Aid Kit
     </template>
 
     <div>Status</div>

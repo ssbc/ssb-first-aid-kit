@@ -2,7 +2,7 @@
   <div>
     <div class="top">
       <div v-if="!atHome" class="backlink">
-        <router-link to="/">Back</router-link>
+        <q-btn to="/" color="secondary" no-caps>&lt; Back</q-btn>
       </div>
       <div class="title">
         <slot name="title"></slot>
