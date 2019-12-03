@@ -1,6 +1,6 @@
 {
   "name": "ssb-first-aid-kit",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "A user-friendly app for diagnosing and fixing problems with your Scuttlebutt installation",
   "main": "index.js",
   "scripts": {
