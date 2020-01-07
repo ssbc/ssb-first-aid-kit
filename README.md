@@ -13,7 +13,9 @@ A user-friendly app for diagnosing and fixing problems with your Scuttlebutt ins
 
 ## Installing and using the app
 
-Download and install [the latest release](https://github.com/ssbc/ssb-first-aid-kit/releases/latest) (`.AppImage` for Linux, `.dmg` for macOS, or `.exe` for Windows).
+Download and install [the latest release](https://github.com/ssbc/ssb-first-aid-kit/releases/latest) (`.AppImage` for Linux, `.dmg` for macOS, or `.exe` for Windows), and then start it.
+
+Also start your regular scuttlebutt client (e.g. Patchwork, Patchbay, etc.) on the same machine. This is needed for some features (like viewing the index progress) to work.
 
 When running the app, if you're not sure what to do to fix your problem, you can ask people on Scuttlebutt what to do, or if you don't have access to Scuttlebutt, you can ask in the online [irc chat](https://webchat.freenode.net/#scuttlebutt).
 
