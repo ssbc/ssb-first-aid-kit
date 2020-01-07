@@ -2,7 +2,7 @@
 
 A user-friendly app for diagnosing and fixing problems with your Scuttlebutt installation
 
-<img src="./screenshot.png" alt="screenshot of the Home page" width="450"/>
+<img src="./screenshot.png" alt="screenshot of the Home page" width="700"/>
 
 ## Features
 
