@@ -67,7 +67,7 @@
       "iconSize": 160,
       "contents": [
         {
-          "x": 180,
+          "x": 180, 
           "y": 170
         },
         {
@@ -84,7 +84,6 @@
           "target": "AppImage",
           "arch": [
             "x64",
-            "ia32",
             "arm64"
           ]
         }
