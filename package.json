@@ -57,14 +57,6 @@
             "x64",
             "ia32"
           ]
-        },
-        {
-          "target": "zip",
-          "arch": [
-            "x64",
-            "ia32",
-            "arm64"
-          ]
         }
       ]
     },
@@ -97,7 +89,7 @@
           ]
         }
       ],
-      "category": "Network;Chat"
+      "category": "Network"
     }
   },
   "files": [
