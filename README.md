@@ -17,7 +17,7 @@ Download and install [the latest release](https://github.com/ssbc/ssb-first-aid-
 
 Also start your regular scuttlebutt client (e.g. Patchwork, Patchbay, etc.) on the same machine. This is needed for some features (like viewing the index progress) to work.
 
-When running the app, if you're not sure what to do to fix your problem, you can ask people on Scuttlebutt what to do, or if you don't have access to Scuttlebutt, you can ask in the online [irc chat](https://webchat.freenode.net/#scuttlebutt).
+When running the app, if you're not sure what to do to fix your problem, you can ask people on Scuttlebutt what to do, or if you don't have access to Scuttlebutt, you can ask in the online [irc chat](https://kiwiirc.com/nextclient/irc.libera.chat/#scuttlebutt).
 
 
 ## Developing the app
