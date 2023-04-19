@@ -1,6 +1,5 @@
 <template>
   <BaseWidget v-if="connected && hasData" link="/indexing" :status="finished ? 'good' : 'neutral'">
-    Index status:
     <Progress
       :current="average"
       :target="target"
@@ -34,9 +33,6 @@ export default {
     ...mapGetters('indexing', [
       'hasData',
     ]),
-    finished () {
-      return this.average === this.target
-    },
   },
 }
 </script>
